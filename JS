@@ -1,0 +1,17 @@
+var dmc_search = false;
+
+function toggleSearchRow() {
+  dmc_search = !dmc_search;
+  if ( dmc_search )
+    jQuery( "#_your_row" ).attr('style', 'height: 46px !important');
+  else
+    jQuery( "#_your_row" ).attr('style', 'height: 0px !important');
+}
+
+jQuery( "#your_toggle_icon" ).click( toggleSearchRow );
+
+// THIS PART IS FOR KEYBOARD ACCESSIBILITY
+jQuery( document ).on( "keypress", "#your_toggle_icon", function(e) {
+  if (e.which == 13) 
+    toggleSearchRow();
+});
